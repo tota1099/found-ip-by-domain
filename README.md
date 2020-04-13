@@ -6,7 +6,7 @@ Quickly search for IPs from domain names listed on excel.
 
 * Python version 3.6
 
-## How run it:
+## How to use
 
 * pip install -r requirements.txt
 * python run.py
