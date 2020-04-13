@@ -1,4 +1,6 @@
-# found-ip-by-domain
+# found-ip-by-domain-excel
+
+Quickly search for IPs from domain names listed on excel.
 
 ## Requirements
 
