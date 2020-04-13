@@ -2,7 +2,7 @@ import socket
 import pandas as pd
 import xlsxwriter
 
-excelPath = '/PATH/TO/EXCEL'
+excelPath = 'example.xlsx'
 
 workbook = xlsxwriter.Workbook(excelPath)
 worksheet = workbook.add_worksheet()
