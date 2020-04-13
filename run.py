@@ -2,24 +2,34 @@ import socket
 import pandas as pd
 import xlsxwriter
 
-excelPath = 'example.xlsx'
+#Constants
+excel_path = 'example.xlsx'
+column_name = 'Domain'
 
-workbook = xlsxwriter.Workbook(excelPath)
+# Instance of result
+workbook = xlsxwriter.Workbook('result.xlsx')
 worksheet = workbook.add_worksheet()
 
-data = pd.read_excel (excelPath)
-rows = pd.DataFrame(data, columns= ['Domain'])
+# Putting the headers
+worksheet.write("A1", "DOMAIN")
+worksheet.write("B1", "IP")
 
-row = 0
-#print(domains)
+# Reading data from excel
+data = pd.read_excel (excel_path)
+rows = pd.DataFrame(data, columns= [column_name])
+
+# Gambi :(
+row = 1
+
 for domain in rows['Domain']:
     result = ''
     try:
-        row = row + 1
         result = socket.gethostbyname(domain)
     except Exception as exc:
         result = exc
     finally:
+        row = row + 1
+        worksheet.write("{}{}".format("A", row), domain)
         worksheet.write("{}{}".format("B", row), str(result))
 
 
